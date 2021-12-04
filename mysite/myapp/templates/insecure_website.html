@@ -1,2 +1,71 @@
-<p> Book: {{ book.title }}</p>
-<p>Published on {{ book.pub_date }}</p>
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+async function XMLFunction(){
+	var xml = '' +
+	'<?xml version="1.0" encoding="UTF-8"?>' +
+	'<root>' +
+	'<search_param>' + $('#search').val() + '</search_param>' +
+	'</root>';
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function () {
+        if(xmlhttp.readyState == 4){
+            console.log(xmlhttp.readyState);
+            console.log(xmlhttp.responseText);
+            document.getElementById('errorMessage').innerHTML = xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("POST", 'search', true);
+    var response = await xmlhttp.send(xml);
+	document.getElementById(id).innerHTML = response
+};
+
+function HintFunction(){
+	document.getElementById("hint").innerHTML = "There is only one user can login and the info about that located in folder named admin at the same directory of this page ";
+}
+</script>
+
+
+
+
+</head>
+<body>
+	<center>
+	<div>
+		<h2>Search local hotels</h2>
+		 <div>
+		 	
+		 	<input name="search" id="search" type="text" class="text" value="" placeholder="Search anything..." />
+		 	<br><br>
+		 
+		 	 <br><br>
+		 	 <button id="login" onclick="XMLFunction()">Search!</button>
+
+		 </div>
+	</div>
+	<div id="errorMessage">
+    </div>
+    <br><br>
+
+    <button  id = "hintbutton" onclick="HintFunction()"> Hint </button>
+    <p id="hint"></p>
+
+<br>
+<br>
+
+<h3>Results:</h3>
+		<br>
+<br>
+<br>
+	<p id="results"></p>
+	</center>
+
+
+</body>
+</html>
