@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 # import xml.etree.ElementTree as XET
 from defusedxml.ElementTree import fromstring, tostring
 def loginPage(request):
-    return render(request, 'login.html')
+    return render(request, 'index.html')
 
 
 @csrf_exempt
