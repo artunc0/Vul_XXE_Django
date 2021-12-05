@@ -10,6 +10,7 @@
 async function XMLFunction(){
 	var xml = '' +
 	'<?xml version="1.0" encoding="UTF-8"?>' +
+	'<!DOCTYPE root [<!ENTITY myentity "my entity value" >]>' +
 	'<root>' +
 	'<search_param>' + $('#search').val() + '</search_param>' +
 	'</root>';
@@ -23,12 +24,9 @@ async function XMLFunction(){
     }
     xmlhttp.open("POST", 'search', true);
     var response = await xmlhttp.send(xml);
-	document.getElementById(id).innerHTML = response
+	document.getElementById("results").innerHTML = response
 };
 
-function HintFunction(){
-	document.getElementById("hint").innerHTML = "There is only one user can login and the info about that located in folder named admin at the same directory of this page ";
-}
 </script>
 
 
@@ -53,14 +51,11 @@ function HintFunction(){
     </div>
     <br><br>
 
-    <button  id = "hintbutton" onclick="HintFunction()"> Hint </button>
-    <p id="hint"></p>
-
 <br>
 <br>
 
 <h3>Results:</h3>
-		<br>
+<br>
 <br>
 <br>
 	<p id="results"></p>
