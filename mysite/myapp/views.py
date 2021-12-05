@@ -3,17 +3,15 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 
-
-
 def loginPage(request):
     return render(request, 'index.html')
 
 
 @csrf_exempt
 def search(request):
-    
 
-    
+    #if you want the code to be secure comment off line 15-17 and comment 19-23
+
     #from defusedxml.ElementTree import fromstring, tostring
     #doc = fromstring(request.body)
     #result = tostring(doc)
