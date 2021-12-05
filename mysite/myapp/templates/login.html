@@ -7,30 +7,25 @@
 
 <script type="text/javascript">
 
-async function XMLFunction(){
+async function XMLREQ(){
 	var xml = '' +
 	'<?xml version="1.0" encoding="UTF-8"?>' +
-	'<!DOCTYPE root [<!ENTITY myentity "my entity value" >]>' +
 	'<root>' +
 	'<search_param>' + $('#search').val() + '</search_param>' +
 	'</root>';
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function () {
-        if(xmlhttp.readyState == 4){
-            console.log(xmlhttp.readyState);
-            console.log(xmlhttp.responseText);
-            document.getElementById('errorMessage').innerHTML = xmlhttp.responseText;
-        }
+
     }
     xmlhttp.open("POST", 'search', true);
     var response = await xmlhttp.send(xml);
 	document.getElementById("results").innerHTML = response
 };
 
+function HintFunction(){
+
+	document.getElementById("hint").innerHTML = "There is only one user can login and the info about that located in folder named admin at the same directory of this page ";
+}
 </script>
-
-
-
 
 </head>
 <body>
@@ -43,7 +38,7 @@ async function XMLFunction(){
 		 	<br><br>
 		 
 		 	 <br><br>
-		 	 <button id="login" onclick="XMLFunction()">Search!</button>
+		 	 <button id="login" onclick="XMLREQ()">Search!</button>
 
 		 </div>
 	</div>
