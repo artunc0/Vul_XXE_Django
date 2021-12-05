@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 def loginPage(request):
-    return render(request, 'login.html')
+    return render(request, 'index.html')
 
 
 @csrf_exempt

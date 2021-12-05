@@ -7,17 +7,33 @@
 
 <script type="text/javascript">
 
-async function XMLREQ(){
+async function XMLFunction(){
 	var xml = '' +
 	'<?xml version="1.0" encoding="UTF-8"?>' +
+	'<!DOCTYPE root [<!ENTITY myentity "my entity value" >]>' +
 	'<root>' +
 	'<search_param>' + $('#search').val() + '</search_param>' +
 	'</root>';
 	var xmlhttp = new XMLHttpRequest();
+<<<<<<< HEAD
+	xmlhttp.onreadystatechange = function () {
+        if(xmlhttp.readyState == 4){
+            console.log(xmlhttp.readyState);
+            console.log(xmlhttp.responseText);
+            document.getElementById('errorMessage').innerHTML = xmlhttp.responseText;
+        }
+    }
+=======
 
+>>>>>>> 87c187f13211c7bd927eba59b3cf9bda88bdf731
     xmlhttp.open("POST", 'search', true);
     xmlhttp.send(xml);
 
+<<<<<<< HEAD
+</script>
+
+
+=======
 	xmlhttp.onreadystatechange = function () {
 	if(xmlhttp.readyState == 4) {
 		document.getElementById('results').innerHTML = xmlhttp.responseText;
@@ -30,6 +46,7 @@ async function XMLREQ(){
 
 
 
+>>>>>>> 87c187f13211c7bd927eba59b3cf9bda88bdf731
 </head>
 <body>
 	<center>
@@ -41,7 +58,7 @@ async function XMLREQ(){
 		 	<br><br>
 		 
 		 	 <br><br>
-		 	 <button id="login" onclick="XMLREQ()">Search!</button>
+		 	 <button id="login" onclick="XMLFunction()">Search!</button>
 
 		 </div>
 	</div>

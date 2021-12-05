@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 #bg {
-  background-image: url('img/background.jpg');
+  background-image: url('img/h_background.jpg');
   position: fixed;
   left: 0;
   top: 0;
@@ -38,16 +38,12 @@ form .form-field::before {
   background-repeat: no-repeat;
 }
 form .form-field:nth-child(1)::before {
-  background-image: url(img/user-icon.png);
+  background-image: url(img/search-icon.png);
   width: 20px;
   height: 20px;
   top: 15px;
 }
-form .form-field:nth-child(2)::before {
-  background-image: url(img/lock-icon.png);
-  width: 16px;
-  height: 16px;
-}
+
 form .form-field {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -83,9 +79,27 @@ form .btn {
   margin: 0 auto;
   padding: 0.9rem 2.5rem;
   text-align: center;
-  background-color: #47AB11;
+  background-color: #ab4911;
   color: #fff;
   border-radius: 4px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   font-size: 17px;
+}
+
+form #hintbutton {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 0.9rem 2rem;
+  text-align: center;
+  background-color: #aaaaaa;
+  border-radius: 4px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  font-size: 13px;
+}
+
+form #hint {
+  color:#fff;
 }
