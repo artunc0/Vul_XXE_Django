@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 #bg {
-  background-image: url('img/h_background.jpg');
+  background-image: url('img/h_background.jpg'); 
   position: fixed;
   left: 0;
   top: 0;
@@ -100,6 +100,16 @@ form #hintbutton {
   font-size: 13px;
 }
 
-form #hint {
+form .sentence {
   color:#fff;
+}
+
+form #res_header {
+  font-size: 31px;
+  text-decoration: underline;
+}
+
+form #results {
+  font-size: 20px;
+ 
 }

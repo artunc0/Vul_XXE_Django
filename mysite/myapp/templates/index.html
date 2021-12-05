@@ -11,6 +11,7 @@
 <script type="text/javascript">
 
 async function XMLFunction(){
+
 	var xml = '' +
 	'<?xml version="1.0" encoding="UTF-8"?>' +
 	'<!DOCTYPE root [<!ENTITY myentity "my entity value" >]>' +
@@ -18,16 +19,14 @@ async function XMLFunction(){
 	'<search_param>' + $('#search').val() + '</search_param>' +
 	'</root>';
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function () {
-        if(xmlhttp.readyState == 4){
-            console.log(xmlhttp.readyState);
-            console.log(xmlhttp.responseText);
-            document.getElementById('errorMessage').innerHTML = xmlhttp.responseText;
-        }
-    }
     xmlhttp.open("POST", 'search', true);
-    var response = await xmlhttp.send(xml);
-	document.getElementById("results").innerHTML = response
+    xmlhttp.send(xml);
+
+	xmlhttp.onreadystatechange = function () {
+	if(xmlhttp.readyState == 4) {
+		document.getElementById('results').innerHTML = xmlhttp.responseText;
+		}
+	}
 };
 
 function HintFunction(){
@@ -42,7 +41,7 @@ document.getElementById("hint").innerHTML = "FLAG EXISTS ";
 
 <div id="bg"></div>
 
-<form>
+<form onsubmit="return false">
   <div class="form-field">
     <input type="search" id="search" type="text" class="text" value="" placeholder="Search anything..."  required/>
   </div>
@@ -57,16 +56,15 @@ document.getElementById("hint").innerHTML = "FLAG EXISTS ";
     <p id="hint"></p>
   </div>
 
-  <div id="errorMessage">
-  </div>
   <br><br>
+  <div style="text-align:center;">
+  <h3 class="sentence" id="res_header">Results</h3>
+<br>
+	<p class="sentence" id="results"></p>
+</div>
+  
 
 </form>
-<h3>Results:</h3>
-<br>
-<br>
-<br>
-	<p id="results"></p>
-  
+
 </body>
 </html>
