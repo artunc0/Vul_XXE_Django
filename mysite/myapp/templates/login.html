@@ -15,17 +15,20 @@ async function XMLREQ(){
 	'</root>';
 	var xmlhttp = new XMLHttpRequest();
 
-    }
     xmlhttp.open("POST", 'search', true);
-    var response = await xmlhttp.send(xml);
-	document.getElementById("results").innerHTML = response
+    xmlhttp.send(xml);
+
+	xmlhttp.onreadystatechange = function () {
+	if(xmlhttp.readyState == 4) {
+		document.getElementById('results').innerHTML = xmlhttp.responseText;
+		}
+	}
 };
 
-function HintFunction(){
-
-	document.getElementById("hint").innerHTML = "There is only one user can login and the info about that located in folder named admin at the same directory of this page ";
-}
 </script>
+
+
+
 
 </head>
 <body>
@@ -42,8 +45,6 @@ function HintFunction(){
 
 		 </div>
 	</div>
-	<div id="errorMessage">
-    </div>
     <br><br>
 
 <br>
